@@ -1,0 +1,81 @@
+- name: Installing stow
+  apt: name=stow
+  tags:
+    - install
+    - dotfiles
+    - stow
+- name: Cloning .dotfiles
+  ansible.builtin.git:
+    repo: "git@github.com:juanjozg/.dotfiles.git"
+    dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
+    recursive: yes
+    update: yes
+    accept_hostkey: yes
+    version: main
+  tags:
+    - install
+    - dotfiles
+    - stow
+- stow:
+    state: present
+    package: zsh
+    dir: "{{ lookup('env', 'HOME') }}/.dotfiles/zsh"
+    target: "$HOME"
+  tags:
+    - install
+    - dotfiles
+    - stow
+- stow:
+    state: present
+    package: nvim
+    dir: "{{ lookup('env', 'HOME') }}/.dotfiles/nvim"
+    target: "$HOME"
+  tags:
+    - install
+    - dotfiles
+    - stow
+- stow:
+    state: present
+    package: starship
+    dir: "{{ lookup('env', 'HOME') }}/.dotfiles/starship"
+    target: "$HOME"
+  tags:
+    - install
+    - dotfiles
+    - stow
+- stow:
+    state: present
+    package: tmux
+    dir: "{{ lookup('env', 'HOME') }}/.dotfiles/tmux"
+    target: "$HOME"
+  tags:
+    - install
+    - dotfiles
+    - stow
+- stow:
+    state: present
+    package: dev
+    dir: "{{ lookup('env', 'HOME') }}/.dotfiles/dev"
+    target: "$HOME"
+  tags:
+    - install
+    - dotfiles
+    - stow
+- stow:
+    state: present
+    package: bash
+    dir: "{{ lookup('env', 'HOME') }}/.dotfiles/bash"
+    target: "$HOME"
+  tags:
+    - install
+    - dotfiles
+    - stow
+- stow:
+    state: present
+    package: bin
+    dir: "{{ lookup('env', 'HOME') }}/.dotfiles/bin"
+    target: "$HOME"
+  tags:
+    - install
+    - dotfiles
+    - stow

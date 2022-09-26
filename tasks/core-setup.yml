@@ -1,0 +1,27 @@
+- name: Install packages
+  become: true
+  apt:
+    name:
+      [
+        "build-essential",
+        "tmux",
+        "zip",
+        "unzip",
+        "curl",
+        "git",
+        "fzf",
+        "bat",
+        "wget",
+        "fd-find",
+        "tldr",
+        "ripgrep",
+        "direnv",
+        "cmake",
+        "moreutils",
+        "less",
+        "stow",
+      ]
+  tags:
+    - install
+    - neovim
+    - core

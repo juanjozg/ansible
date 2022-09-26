@@ -1,0 +1,126 @@
+- name: Install Angular server
+  npm:
+    name: "@angular/language-server"
+    global: yes
+  tags:
+    - install
+    - node
+- name: Install Angular service
+  npm:
+    name: "@angular/language-service"
+    global: yes
+  tags:
+    - install
+    - node
+- name: Install Eslint
+  npm:
+    name: eslint
+    global: yes
+  tags:
+    - install
+    - node
+- name: Install Typescript server
+  npm:
+    name: typescript-language-server
+    global: yes
+  tags:
+    - install
+    - node
+- name: Install Typescript
+  npm:
+    name: typescript
+    global: yes
+  tags:
+    - install
+    - node
+- name: Install TS-Node
+  npm:
+    name: ts-node
+    global: yes
+  tags:
+    - install
+    - node
+- name: Install Css server
+  npm:
+    name: cssmodules-language-server
+    global: yes
+  tags:
+    - install
+    - node
+- name: Install Diagnostic server
+  npm:
+    name: diagnostic-languageserver
+    global: yes
+  tags:
+    - install
+    - node
+- name: Install Emmet server
+  npm:
+    name: emmet-ls
+    global: yes
+  tags:
+    - install
+    - node
+- name: Install Vscode languages server
+  npm:
+    name: vscode-langservers-extracted
+    global: yes
+  tags:
+    - install
+    - node
+- name: Install Vue server
+  npm:
+    name: "@volar/vue-language-server"
+    global: yes
+  tags:
+    - install
+    - node
+- name: Install Ansible server
+  npm:
+    name: "@ansible/ansible-language-server"
+    global: yes
+  tags:
+    - install
+    - node
+- name: Install Svelte server
+  npm:
+    name: svelte-language-server
+    global: yes
+  tags:
+    - install
+    - node
+- name: Install Tailwind server
+  npm:
+    name: "@tailwindcss/language-server"
+    global: yes
+  tags:
+    - install
+    - node
+- name: Install Graphql server
+  npm:
+    name: graphql-language-server-cli
+    global: yes
+  tags:
+    - install
+    - node
+- name: Install Docker server
+  npm:
+    name: dockerfile-language-server-nodejs
+    global: yes
+  tags:
+    - install
+    - node
+- name: Install Bash server
+  npm:
+    name: bash-language-server
+    global: yes
+  tags:
+    - install
+    - node
+- name: Install Yaml server
+  npm:
+    name: yaml-language-server
+    global: yes
+  tags:
+    - install
+    - node
