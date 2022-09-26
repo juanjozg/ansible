@@ -8,4 +8,4 @@ curl -o stow https://raw.githubusercontent.com/caian-org/ansible-stow/v0.1.4/sto
 sudo mkdir -p /usr/share/ansible/plugins/modules/
 sudo mv stow /usr/share/ansible/plugins/modules/
 
-sudo ansible-playground --ask-vault-pass local.yml
+sudo ansible-playbook --ask-vault-pass local.yml
