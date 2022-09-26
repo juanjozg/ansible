@@ -1,11 +1,11 @@
 - hosts: localhost
-  become: true
   vars:
     source_key: "./.ssh/id_ed25519"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
     personal: "{{ lookup('env', 'HOME') }}/personal"
   pre_tasks:
     - name: Update cache
+      become: true
       apt:
         force_apt_get: true
         update_cache: true
