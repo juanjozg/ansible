@@ -1,7 +1,17 @@
 - name: Install ZSH
-  apt: name=zsh
-  tags: &tags_for_zsh_tasks ["install", "dotfiles", "zsh"]
+  become: true
+  apt:
+    name: zsh
+    state: latest
+  tags:
+    - "install"
+    - "dotfiles"
+    - "zsh"
 
 - name: Change shell to zsh
+  become: true
   shell: chsh -s $(which zsh)
-  tags: *tags_for_zsh_tasks
+  tags:
+    - "install"
+    - "dotfiles"
+    - "zsh"

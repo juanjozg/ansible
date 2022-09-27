@@ -17,12 +17,6 @@
         - install
         - core
   tasks:
-    - name: PATH
-      debug:
-        msg: "{{ ansible_env.PATH }}"
-    - name: N_PREFIX
-      debug:
-        msg: "{{ ansible_env.N_PREFIX }}"
     - import_tasks: tasks/ssh.yml
     - import_tasks: tasks/git-setup.yml
     - import_tasks: tasks/node-setup.yml
