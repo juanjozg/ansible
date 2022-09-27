@@ -1,4 +1,4 @@
-- name: Remove neovim
+- name: Remove Neovim
   shell: rm -rf ~/neovim
   tags:
     - install
@@ -10,10 +10,13 @@
   tags:
     - install
     - neovim
-- name: Build Prerequisites
+- name: Install build prerequisites
+  become: true
   apt:
     name:
       [
+        "libpthread-stubs0-dev",
+        "lua5.1",
         "ninja-build",
         "gettext",
         "libtool",
@@ -21,24 +24,23 @@
         "autoconf",
         "automake",
         "cmake",
-        "g",
-        "++",
+        "g++",
         "pkg-config",
-        "unzip",
-        "curl",
         "doxygen",
+        "clang",
+        "clang-11",
+        "clang-12",
+        "clangd",
+        "clangd-10",
+        "clangd-11",
+        "clangd-12",
       ]
-    tags:
-      - install
-      - neovim
-# - name: Build neovim
-#   shell: "cd {{ lookup('env', 'HOME') }}/neovim && make -j 20"
-#   tags:
-#     - install
-#     - neovim
-- name: Install neovim
+  tags:
+    - install
+    - neovim
+- name: Install Neovim
   become: true
-  shell: "cd {{ lookup('env', 'HOME') }}/neovim && make CMAKE_BUILD_TYPE=Release install"
+  shell: "make CMAKE_INSTALL_PREFIX={{ lookup('env', 'HOME') }}/neovim CMAKE_BUILD_TYPE=Release install"
   tags:
     - install
     - neovim
