@@ -16,9 +16,7 @@
         "tldr",
         "ripgrep",
         "direnv",
-        "cmake",
         "moreutils",
-        "pkg-config",
         "less",
         "stow",
       ]

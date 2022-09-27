@@ -10,14 +10,35 @@
   tags:
     - install
     - neovim
-- name: Build neovim
-  shell: "cd {{ lookup('env', 'HOME') }}/neovim && make -j 20"
-  tags:
-    - install
-    - neovim
+- name: Build Prerequisites
+  apt:
+    name:
+      [
+        "ninja-build",
+        "gettext",
+        "libtool",
+        "libtool-bin",
+        "autoconf",
+        "automake",
+        "cmake",
+        "g",
+        "++",
+        "pkg-config",
+        "unzip",
+        "curl",
+        "doxygen",
+      ]
+    tags:
+      - install
+      - neovim
+# - name: Build neovim
+#   shell: "cd {{ lookup('env', 'HOME') }}/neovim && make -j 20"
+#   tags:
+#     - install
+#     - neovim
 - name: Install neovim
   become: true
-  shell: "cd {{ lookup('env', 'HOME') }}/neovim && make install"
+  shell: "cd {{ lookup('env', 'HOME') }}/neovim && make CMAKE_BUILD_TYPE=Release install"
   tags:
     - install
     - neovim
