@@ -98,7 +98,7 @@
     - node
 - name: Install Graphql server
   npm:
-    name: graphql-language-server-cli
+    name: graphql-language-service-cli
     global: yes
   tags:
     - install

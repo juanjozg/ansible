@@ -4,7 +4,7 @@
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
     personal: "{{ lookup('env', 'HOME') }}/personal"
   environment:
-    N_PREFIX: "{{ lookup  'env', 'HOME')}}/.local/n/bin"
+    N_PREFIX: "{{ lookup('env', 'HOME') }}/.local/n/bin"
     PATH: "{{ lookup('env', 'HOME')}}/.local/.npm-global/bin:{{ ansible_env.PATH }}"
   pre_tasks:
     - name: Update cache
@@ -18,9 +18,11 @@
         - core
   tasks:
     - name: PATH
-      shell: echo $PATH
+      debug:
+        msg: "{{ ansible_env.PATH }}"
     - name: N_PREFIX
-      shell: echo $N_PREFIX
+      debug:
+        msg: "{{ ansible_env.N_PREFIX }}"
     - import_tasks: tasks/ssh.yml
     - import_tasks: tasks/git-setup.yml
     - import_tasks: tasks/node-setup.yml
