@@ -19,11 +19,57 @@
         "moreutils",
         "less",
         "stow",
+        "apt-transport-https",
       ]
   tags:
     - install
     - neovim
     - core
+- name: Add Yarn apt key
+  apt_key:
+    url: https://dl.yarnpkg.com/debian/pubkey.gpg
+  tags:
+    - install
+    - neovim
+    - core
+    - dotfiles
+- name: Add Yarn repository
+  apt_repository:
+    repo: "deb https://dl.yarnpkg.com/debian/ stable main"
+    filename: yarn
+  tags:
+    - install
+    - neovim
+    - core
+    - dotfiles
+- name: Install Yarn
+  apt:
+    name: yarn
+  tags:
+    - install
+    - neovim
+    - core
+    - dotfiles
+- name: Get starship install script
+  get_url:
+    url: https://starship.rs/install.sh
+    dest: /tmp/starship_install.sh
+    mode: "0755"
+  tags:
+    - install
+    - neovim
+    - core
+    - dotfiles
+- name: Install starship
+  become: true
+  shell:
+    cmd: /tmp/starship_install.sh --yes
+    executable: /bin/sh
+  tags:
+    - install
+    - neovim
+    - core
+    - dotfiles
 - name: Install manual packages
   shell: cd $HOME/ansible && ./install-packages.sh
   tags:

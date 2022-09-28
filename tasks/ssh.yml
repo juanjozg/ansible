@@ -36,3 +36,5 @@
     - dotfiles
     - install
     - ssh
+- name: Enable ssh-agent
+  shell: eval $(ssh-agent) && ssh-add
