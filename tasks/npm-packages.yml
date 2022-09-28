@@ -33,6 +33,13 @@
   tags:
     - install
     - node
+- name: Install Types Node
+  npm:
+    name: "@types/node"
+    global: yes
+  tags:
+    - install
+    - node
 - name: Install TS-Node
   npm:
     name: ts-node
@@ -92,6 +99,13 @@
 - name: Install Tailwind server
   npm:
     name: "@tailwindcss/language-server"
+    global: yes
+  tags:
+    - install
+    - node
+- name: Install Graphql
+  npm:
+    name: graphql
     global: yes
   tags:
     - install

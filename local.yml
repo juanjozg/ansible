@@ -4,7 +4,7 @@
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
     personal: "{{ lookup('env', 'HOME') }}/personal"
   environment:
-    N_PREFIX: "{{ lookup('env', 'HOME') }}/.local/n/bin"
+    N_PREFIX: "{{ lookup('env', 'HOME') }}/.local/n"
     PATH: "{{ lookup('env', 'HOME')}}/.local/.npm-global/bin:{{ ansible_env.PATH }}"
   pre_tasks:
     - name: Update cache
