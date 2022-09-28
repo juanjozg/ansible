@@ -126,7 +126,7 @@
     - dotfiles
 - name: Install lazygit
   become: true
-  shell: tar --overwrite xf lazygit.tar.gz -C /usr/local/bin lazygit
+  shell: tar --overwrite -xf lazygit.tar.gz -C /usr/local/bin lazygit
   tags:
     - test
     - install
