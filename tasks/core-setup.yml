@@ -77,7 +77,6 @@
   shell: curl -s "https://api.github.com/repos/ogham/exa/releases/latest" | grep -Po '"tag_name"{{ ":" }} "v\K[0-9.]+'
   register: EXA_VERSION
   tags:
-    - test
     - install
     - neovim
     - core
@@ -85,7 +84,6 @@
 - name: Downloading exa
   shell: curl -Lo exa.zip "https://github.com/ogham/exa/releases/latest/download/exa-linux-x86_64-v{{EXA_VERSION.stdout}}.zip"
   tags:
-    - test
     - install
     - neovim
     - core
@@ -94,7 +92,6 @@
   become: true
   shell: unzip -qo exa.zip bin/exa -d /usr/local
   tags:
-    - test
     - install
     - neovim
     - core
@@ -102,7 +99,6 @@
 - name: Remove exa.zip
   shell: rm -rf exa.zip
   tags:
-    - test
     - install
     - neovim
     - core
@@ -111,7 +107,6 @@
   shell: curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest"| grep -Po '"tag_name"{{ ":" }} "v\K[0-35.]+'
   register: LAZYGIT_VERSION
   tags:
-    - test
     - install
     - neovim
     - core
@@ -119,7 +114,6 @@
 - name: Downloading lazygit
   shell: curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_{{LAZYGIT_VERSION.stdout}}_Linux_x86_64.tar.gz"
   tags:
-    - test
     - install
     - neovim
     - core
@@ -128,7 +122,6 @@
   become: true
   shell: tar --overwrite -xf lazygit.tar.gz -C /usr/local/bin lazygit
   tags:
-    - test
     - install
     - neovim
     - core
@@ -136,7 +129,6 @@
 - name: Remove lazygit.tar.gz
   shell: rm -rf lazygit.tar.gz
   tags:
-    - test
     - install
     - neovim
     - core
