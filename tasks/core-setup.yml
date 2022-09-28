@@ -117,7 +117,7 @@
     - core
     - dotfiles
 - name: Downloading lazygit
-  shell: curl -Lo lazygit.tar.gz "https://github.com/ogham/exa/releases/latest/download/exa-linux-x86_64-v{{LAZYGIT_VERSION.stdout}}.zip"
+  shell: curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION.stdout}_Linux_x86_64.tar.gz""
   tags:
     - test
     - install
