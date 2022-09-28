@@ -36,5 +36,3 @@
     - dotfiles
     - install
     - ssh
-- name: Load ssh key
-  shell: eval $(ssh-agent -s) && ssh-add ~/.ssh/id_ed25519

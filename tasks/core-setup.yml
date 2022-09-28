@@ -25,6 +25,7 @@
     - install
     - neovim
     - core
+    - dotfiles
 - name: Add Yarn apt key
   become: true
   apt_key:
