@@ -7,7 +7,7 @@
 #     accept_hostkey: yes
 #     version: main
 - name: Clone .dotfiles
-  shell: cd $HOME/ansible/clone-dotfiles.sh
+  shell: cd $HOME/ansible && ./clone-dotfiles.sh
   tags:
     - install
     - dotfiles
