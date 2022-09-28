@@ -74,7 +74,7 @@
     - core
     - dotfiles
 - name: Getting last exa_version
-  shell: EXA_VERSION=$(curl -s "https://api.github.com/repos/ogham/exa/releases/latest" | grep -Po '\"tag_name\":\"v\K[0-9.]+')
+  shell: EXA_VERSION=$(curl -s "https://api.github.com/repos/ogham/exa/releases/latest" | grep -Po '"tag_name":"v\K[0-9.]+')
   tags:
     - test
     - install
