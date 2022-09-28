@@ -24,3 +24,10 @@
     - install
     - neovim
     - core
+- name: Install manual packages
+  shell: cd $HOME/ansible && ./install-packages.sh
+  tags:
+    - install
+    - neovim
+    - core
+    - dotfiles
