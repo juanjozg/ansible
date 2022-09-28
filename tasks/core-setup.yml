@@ -74,7 +74,7 @@
     - core
     - dotfiles
 - name: Getting last exa_version
-  shell: EXA_VERSION=$(curl -s "https://api.github.com/repos/ogham/exa/releases/latest" | grep -Po '"tag_name":"v\K[0-9.]+')
+  shell: EXA_VERSION=$(curl -s "https://api.github.com/repos/ogham/exa/releases/latest" | grep -Po '"tag_name"{{ ":" }}"v\K[0-9.]+')
   tags:
     - test
     - install
@@ -82,7 +82,7 @@
     - core
     - dotfiles
 - name: Downloading exa
-  shell: curl -Lo exa.zip "https://github.com/ogham/exa/releases/latest/download/exa-linux-x86_64-v{{EXA_VERSION}}.zip"
+  shell: curl -Lo exa.zip "https://github.com/ogham/exa/releases/latest/download/exa-linux-x86_64-v{{EXA_VERSION.stdout}}.zip"
   tags:
     - test
     - install
@@ -107,7 +107,7 @@
     - core
     - dotfiles
 - name: Getting last lazygit_version
-  shell: LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest"| grep -Po '"tag_name":"v\K[0-35.]+')
+  shell: LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest"| grep -Po '"tag_name"{{:}}"v\K[0-35.]+')
   tags:
     - test
     - install
@@ -115,7 +115,7 @@
     - core
     - dotfiles
 - name: Downloading lazygit
-  shell: curl -Lo lazygit.tar.gz "https://github.com/ogham/exa/releases/latest/download/exa-linux-x86_64-v{{LAZYGIT_VERSION}}.zip"
+  shell: curl -Lo lazygit.tar.gz "https://github.com/ogham/exa/releases/latest/download/exa-linux-x86_64-v{{LAZYGIT_VERSION.stdout}}.zip"
   tags:
     - test
     - install
