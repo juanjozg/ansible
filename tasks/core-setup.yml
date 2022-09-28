@@ -92,7 +92,7 @@
     - dotfiles
 - name: Install exa
   become: true
-  shell: unzip -q exa.zip bin/exa -d /usr/local
+  shell: unzip -qo exa.zip bin/exa -d /usr/local
   tags:
     - test
     - install
@@ -126,7 +126,7 @@
     - dotfiles
 - name: Install lazygit
   become: true
-  shell: tar xf lazygit.tar.gz -C /usr/local/bin lazygit
+  shell: tar --overwrite xf lazygit.tar.gz -C /usr/local/bin lazygit
   tags:
     - test
     - install
