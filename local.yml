@@ -5,8 +5,8 @@
     current_user: "{{ ansible_user_id }}"
     personal: "{{ lookup('env', 'HOME') }}/personal"
   environment:
-    N_PREFIX: "{{ lookup('env', 'HOME') }}/.local/n/bin"
-    PATH: "{{ lookup('env', 'HOME')}}/.local/.npm-global/bin:{{ ansible_env.PATH }}"
+    N_PREFIX: "{{ lookup('env', 'HOME') }}/.local/n"
+    PATH: "{{ lookup('env', 'HOME')}}/.local/.npm-global/bin:{{ lookup('env', 'HOME')}}/.local/n/bin:{{ ansible_env.PATH }}"
   pre_tasks:
     - name: Update cache
       become: true
