@@ -45,6 +45,7 @@
     - core
     - dotfiles
 - name: Install Yarn
+  become: true
   apt:
     name: yarn
   tags:
