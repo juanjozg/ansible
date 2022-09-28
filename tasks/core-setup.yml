@@ -74,7 +74,8 @@
     - core
     - dotfiles
 - name: Getting last exa_version
-  shell: EXA_VERSION=$(curl -s "https://api.github.com/repos/ogham/exa/releases/latest" | grep -Po '"tag_name"{{ ":" }}"v\K[0-9.]+')
+  shell: curl -s "https://api.github.com/repos/ogham/exa/releases/latest" | grep -Po '"tag_name"{{ ":" }}"v\K[0-9.]+'
+  register: EXA_VERSION
   tags:
     - test
     - install
@@ -107,7 +108,8 @@
     - core
     - dotfiles
 - name: Getting last lazygit_version
-  shell: LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest"| grep -Po '"tag_name"{{:}}"v\K[0-35.]+')
+  shell: curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest"| grep -Po '"tag_name"{{:}}"v\K[0-35.]+'
+  register: LAZYGIT_VERSION
   tags:
     - test
     - install
